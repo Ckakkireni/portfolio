@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Chandrasekhar Kakkireni — Senior .NET Full Stack Developer and Technical Specialist with 15+ years of experience building enterprise platforms, APIs, integrations and cloud solutions.">
+  <meta name="theme-color" content="#0b1220">
+  <title>Chandrasekhar Kakkireni | .NET Full Stack Developer</title>
+  <style>
+    :root {
+      --bg: #0b1220; --panel: #111c2e; --panel2: #152238; --text: #edf3fb;
+      --muted: #a8b6c9; --line: rgba(176,198,226,.15); --accent: #62d5c8;
+      --accent2: #80aaff; --gold: #f0c879; --shadow: 0 18px 50px rgba(0,0,0,.24);
+      --radius: 18px; --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: radial-gradient(circle at 80% 0%, #172b48 0, transparent 34%), var(--bg);
+      color: var(--text); font: 16px/1.7 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: auto; }
+    .nav-wrap { position: sticky; top: 0; z-index: 20; background: rgba(11,18,32,.86); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
+    nav { min-height: 72px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { font-weight:800; letter-spacing:.02em; white-space:nowrap; }
+    .brand span { color:var(--accent); }
+    .nav-links { display:flex; gap:22px; align-items:center; color:var(--muted); font-size:.9rem; }
+    .nav-links a:hover { color:var(--accent); }
+    .menu-btn { display:none; border:1px solid var(--line); color:var(--text); background:var(--panel); border-radius:10px; padding:8px 12px; }
+    .hero { padding:92px 0 76px; display:grid; grid-template-columns:1.45fr .75fr; gap:56px; align-items:center; }
+    .eyebrow { color:var(--accent); text-transform:uppercase; letter-spacing:.18em; font-size:.76rem; font-weight:800; }
+    h1 { font-size:clamp(2.7rem,6vw,5rem); line-height:1.04; letter-spacing:-.055em; margin:18px 0; }
+    h1 span { color:var(--accent); }
+    .hero h2 { color:#c4d2e5; font-size:clamp(1.1rem,2.1vw,1.45rem); font-weight:550; margin:0 0 20px; }
+    .lead { color:var(--muted); max-width:700px; font-size:1.06rem; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:9px; padding:12px 18px; border-radius:11px; font-weight:750; border:1px solid transparent; transition:.2s ease; }
+    .btn-primary { background:var(--accent); color:#07151a; }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(98,213,200,.2); }
+    .btn-outline { border-color:var(--line); color:var(--text); background:rgba(255,255,255,.025); }
+    .btn-outline:hover { border-color:var(--accent); color:var(--accent); }
+    .hero-card { background:linear-gradient(145deg,rgba(98,213,200,.12),rgba(128,170,255,.06)),var(--panel); border:1px solid var(--line); border-radius:24px; padding:28px; box-shadow:var(--shadow); }
+    .monogram { width:76px; height:76px; display:grid; place-items:center; border-radius:22px; color:#07151a; background:linear-gradient(135deg,var(--accent),#9be7d7); font-size:1.8rem; font-weight:900; margin-bottom:22px; }
+    .stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:22px; }
+    .stat { padding:14px; background:rgba(255,255,255,.045); border:1px solid var(--line); border-radius:13px; }
+    .stat strong { display:block; color:var(--accent); font-size:1.45rem; line-height:1.3; }
+    .stat small { color:var(--muted); }
+    section { padding:74px 0; scroll-margin-top:80px; }
+    .section-head { margin-bottom:30px; }
+    .section-head h2 { font-size:clamp(1.8rem,3vw,2.5rem); letter-spacing:-.035em; margin:8px 0; }
+    .section-head p { color:var(--muted); margin:0; max-width:720px; }
+    .grid { display:grid; gap:18px; }
+    .skills-grid { grid-template-columns:repeat(4,1fr); }
+    .card { background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:22px; }
+    .card h3 { margin:0 0 12px; font-size:1.05rem; }
+    .card p { color:var(--muted); margin:0; }
+    .skill-card .icon { color:var(--accent); font-size:1.3rem; margin-bottom:12px; }
+    .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:15px; }
+    .tag { border:1px solid rgba(128,170,255,.2); background:rgba(128,170,255,.07); color:#cbdcff; padding:5px 10px; border-radius:999px; font-size:.78rem; }
+    .projects { grid-template-columns:repeat(2,1fr); }
+    .project { position:relative; overflow:hidden; }
+    .project:before { content:""; position:absolute; width:150px; height:150px; border-radius:50%; background:rgba(98,213,200,.07); right:-65px; top:-65px; }
+    .project-top { display:flex; justify-content:space-between; gap:15px; align-items:flex-start; }
+    .project-type { color:var(--accent); font-size:.72rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    .project h3 { font-size:1.2rem; margin:8px 0 10px; }
+    .project p { position:relative; }
+    .project .tags { position:relative; }
+    .experience { display:grid; gap:16px; }
+    .job { display:grid; grid-template-columns:220px 1fr; gap:28px; }
+    .job-meta { border-right:1px solid var(--line); padding-right:20px; }
+    .job-meta strong { display:block; color:var(--accent); }
+    .job-meta span { color:var(--muted); font-size:.9rem; }
+    .job-content h3 { margin:0 0 4px; }
+    .job-content .role { color:var(--muted); margin:0 0 12px; }
+    ul.clean { padding-left:19px; margin:10px 0 0; color:var(--muted); }
+    ul.clean li { margin:7px 0; }
+    .leadership-grid { grid-template-columns:repeat(3,1fr); }
+    .timeline { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    .education-item { border-left:2px solid var(--accent); padding:4px 0 4px 18px; }
+    .education-item strong { display:block; }
+    .education-item span { color:var(--muted); font-size:.9rem; }
+    .contact-panel { display:flex; align-items:center; justify-content:space-between; gap:28px; padding:34px; border-radius:22px; border:1px solid rgba(98,213,200,.24); background:linear-gradient(120deg,rgba(98,213,200,.12),rgba(128,170,255,.07)); }
+    .contact-panel h2 { margin:0 0 8px; font-size:2rem; }
+    .contact-panel p { margin:0; color:var(--muted); }
+    footer { padding:28px 0 40px; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); }
+    .footer-row { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+    .muted-note { color:var(--muted); font-size:.85rem; }
+    @media (max-width:850px) {
+      .hero { grid-template-columns:1fr; gap:30px; padding-top:65px; }
+      .skills-grid { grid-template-columns:repeat(2,1fr); }
+      .leadership-grid { grid-template-columns:1fr 1fr; }
+      .job { grid-template-columns:1fr; gap:8px; }
+      .job-meta { border:0; padding:0; }
+    }
+    @media (max-width:620px) {
+      .container { width:min(100% - 28px,var(--max)); }
+      .menu-btn { display:block; }
+      .nav-links { display:none; position:absolute; top:72px; left:0; right:0; padding:18px 22px 22px; background:#0e192a; border-bottom:1px solid var(--line); flex-direction:column; align-items:flex-start; }
+      .nav-links.open { display:flex; }
+      .projects,.skills-grid,.leadership-grid,.timeline { grid-template-columns:1fr; }
+      section { padding:55px 0; }
+      .contact-panel { align-items:flex-start; flex-direction:column; padding:25px; }
+      .hero-card { padding:22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="#home">CK<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+        <a href="#experience">Experience</a><a href="#education">Education</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <header class="container hero" id="home">
+      <div>
+        <div class="eyebrow">Portfolio · Enterprise Software Engineering</div>
+        <h1>Chandrasekhar<br><span>Kakkireni</span></h1>
+        <h2>Senior .NET Full Stack Developer | Technical Specialist | Technical Lead</h2>
+        <p class="lead">I build secure, scalable enterprise applications and integration platforms — bringing together backend engineering, modern web experiences, cloud services and connected building technologies.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-outline" href="mailto:ckakkireni@gmail.com?subject=Resume%20Request">Request Resume</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Professional snapshot">
+        <div class="monogram">CK</div>
+        <div class="eyebrow">Professional Snapshot</div>
+        <h3 style="font-size:1.35rem;margin:8px 0;">Engineering solutions for complex business needs.</h3>
+        <p class="muted-note">Full-stack development · API & system integration · Cloud delivery · Technical leadership</p>
+        <div class="stat-grid">
+          <div class="stat"><strong>15+</strong><small>Years in IT</small></div>
+          <div class="stat"><strong>.NET</strong><small>Core expertise</small></div>
+          <div class="stat"><strong>Cloud</strong><small>Azure & AWS exposure</small></div>
+          <div class="stat"><strong>Lead</strong><small>Technical & Agile roles</small></div>
+        </div>
+      </aside>
+    </header>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">01 / About</div><h2>Turning requirements into reliable software</h2></div>
+        <p class="lead">An experienced .NET Full Stack Developer and Technical Specialist with 15+ years of experience across analysis, design, development, integration and delivery of web-based and enterprise applications. My work spans RESTful services, microservice-oriented platforms, engineering analytics, building automation integrations and business applications. I enjoy collaborating with product owners, guiding engineering teams and translating complex requirements into maintainable solutions.</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">02 / Expertise</div><h2>Technical skills</h2><p>A practical mix of backend, frontend, integration, data and delivery capabilities.</p></div>
+        <div class="grid skills-grid">
+          <article class="card skill-card"><div class="icon">⌘</div><h3>Backend & Frameworks</h3><p>Enterprise application and service development.</p><div class="tags"><span class="tag">C#</span><span class="tag">.NET</span><span class="tag">.NET Core</span><span class="tag">ASP.NET MVC</span><span class="tag">Web API</span><span class="tag">WCF</span><span class="tag">Windows Services</span></div></article>
+          <article class="card skill-card"><div class="icon">▤</div><h3>Frontend</h3><p>Responsive web interfaces and reusable components.</p><div class="tags"><span class="tag">React</span><span class="tag">Angular</span><span class="tag">AngularJS</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">HTML5</span><span class="tag">CSS</span><span class="tag">jQuery</span></div></article>
+          <article class="card skill-card"><div class="icon">⇄</div><h3>APIs & Integration</h3><p>Secure service communication and connected systems.</p><div class="tags"><span class="tag">REST APIs</span><span class="tag">Microservices</span><span class="tag">OAuth</span><span class="tag">Swagger</span><span class="tag">SSE</span><span class="tag">SignalR</span><span class="tag">IoT</span></div></article>
+          <article class="card skill-card"><div class="icon">▦</div><h3>Cloud, Data & Delivery</h3><p>Data platforms, deployment and team execution.</p><div class="tags"><span class="tag">Azure</span><span class="tag">AWS</span><span class="tag">SQL Server</span><span class="tag">Oracle</span><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">IIS</span><span class="tag">Agile / Scrum</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">03 / Selected Work</div><h2>Featured projects</h2><p>Enterprise platforms and recent product/design initiatives drawn from my professional experience and project work.</p></div>
+        <div class="grid projects">
+          <article class="card project">
+            <div class="project-top"><div><div class="project-type">Engineering analytics</div><h3>Software Insights Dashboard (SID)</h3></div><span class="tag">01</span></div>
+            <p>An engineering analytics platform consolidating build, unit-test, code-coverage and sprint metrics across business units. Contributed React modules, REST API integration, test-result ingestion and coverage-data visualization.</p>
+            <div class="tags"><span class="tag">React</span><span class="tag">.NET</span><span class="tag">REST APIs</span><span class="tag">GCOVR / GCOV</span><span class="tag">CI/CD</span></div>
+          </article>
+          <article class="card project">
+            <div class="project-top"><div><div class="project-type">Building integration · IoT</div><h3>Building Integration Platform (BIP) & MyWay</h3></div><span class="tag">02</span></div>
+            <p>A REST-based integration platform connecting HVAC, access control, lighting, elevators, fire and video systems. Worked on APIs, OAuth-based security, semantic mapping, notifications, event processing and connector services.</p>
+            <div class="tags"><span class="tag">ASP.NET Web API</span><span class="tag">.NET Core</span><span class="tag">Azure</span><span class="tag">OAuth</span><span class="tag">IoT</span><span class="tag">SSE</span></div>
+          </article>
+          <article class="card project">
+            <div class="project-top"><div><div class="project-type">AI · Requirements engineering</div><h3>Req Studio</h3></div><span class="tag">03</span></div>
+            <p>Recent work refining AI prompt workflows for generating functional requirements, feature requirements, test scenarios and test cases across Web, Mobile and Industrial Controller application types, with an emphasis on traceability and domain-specific outputs.</p>
+            <div class="tags"><span class="tag">Generative AI</span><span class="tag">Prompt Engineering</span><span class="tag">Requirements</span><span class="tag">QA Workflows</span></div>
+          </article>
+          <article class="card project">
+            <div class="project-top"><div><div class="project-type">Mobile · UX concept</div><h3>HVAC Field Assistant</h3></div><span class="tag">04</span></div>
+            <p>Exploration of an enterprise mobile experience for HVAC field-service workflows, including a structured application scope and a professional field-assistant interface concept.</p>
+            <div class="tags"><span class="tag">HVAC</span><span class="tag">Mobile UX</span><span class="tag">Figma</span><span class="tag">Enterprise Design</span></div>
+          </article>
+          <article class="card project">
+            <div class="project-top"><div><div class="project-type">Financial services</div><h3>Real Estate (RE) Manager</h3></div><span class="tag">05</span></div>
+            <p>Worked as Technical Lead on a real-estate management suite for New York Life Insurance, contributing across deal, loan, acquisition, borrower, document and cash-management modules.</p>
+            <div class="tags"><span class="tag">.NET Framework</span><span class="tag">Angular</span><span class="tag">SQL Server</span><span class="tag">WCF</span></div>
+          </article>
+          <article class="card project">
+            <div class="project-top"><div><div class="project-type">Marketing · Reporting</div><h3>Marketing & Reporting System (MARS)</h3></div><span class="tag">06</span></div>
+            <p>Contributed to core administration, access-control, reporting and data-access modules, database optimization, import/export utilities and real-time collaboration features.</p>
+            <div class="tags"><span class="tag">.NET</span><span class="tag">Oracle</span><span class="tag">SignalR</span><span class="tag">Angular</span><span class="tag">JavaScript</span></div>
+          </article>
+        </div>
+        <p class="muted-note" style="margin-top:18px;">Note: Req Studio and HVAC Field Assistant are presented as recent initiatives/design work, not as claims of a production deployment.</p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">04 / Career</div><h2>Professional experience</h2><p>Progressive experience in enterprise software engineering, technical ownership and delivery.</p></div>
+        <div class="experience">
+          <article class="card job">
+            <div class="job-meta"><strong>Carrier Technologies India Limited</strong><span>Dec 2014 – Present<br>India</span></div>
+            <div class="job-content"><h3>Technical Specialist – .NET Full Stack</h3><p class="role">Full Stack Developer · Technical Specialist · Lead Engineer · Scrum Master</p>
+              <ul class="clean">
+                <li>Developed and enhanced enterprise web applications, React interfaces and RESTful backend services.</li>
+                <li>Contributed to engineering analytics, building integration, HVAC and IoT-connected solutions.</li>
+                <li>Designed APIs, integrated databases and supported Azure deployments and IIS hosting.</li>
+                <li>Collaborated with product owners, DevOps and cyber-security teams; supported planning, reviews, mentoring and production troubleshooting.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card job">
+            <div class="job-meta"><strong>Trianz Holdings India Pvt. Ltd.</strong><span>Hyderabad, India</span></div>
+            <div class="job-content"><h3>Technical Lead – .NET</h3><p class="role">Real Estate Manager · New York Life Insurance</p>
+              <ul class="clean"><li>Contributed to multiple business modules, design and development, client enhancements and performance improvements.</li><li>Prepared technical design documents, conducted code reviews and coordinated builds and release activities.</li></ul>
+            </div>
+          </article>
+          <article class="card job">
+            <div class="job-meta"><strong>Phoenix American Sales Focus Solutions India Pvt. Ltd.</strong><span>Dec 2010 – Aug 2018<br>Hyderabad, India</span></div>
+            <div class="job-content"><h3>Technology Lead – .NET</h3><p class="role">Marketing and Reporting System (MARS)</p>
+              <ul class="clean"><li>Developed administration, access-control, reporting and business/data-access components.</li><li>Optimized Oracle stored procedures, implemented real-time messaging and integrated third-party email services.</li></ul>
+            </div>
+          </article>
+        </div>
+        <p class="muted-note" style="margin-top:16px;">Employment dates and role sequencing should be verified against the latest resume before external publication.</p>
+      </div>
+    </section>
+
+    <section id="leadership">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">05 / How I contribute</div><h2>Beyond writing code</h2></div>
+        <div class="grid leadership-grid">
+          <article class="card"><h3>Solution design</h3><p>Translate business needs into application architecture, API contracts, integration patterns and technical designs.</p></article>
+          <article class="card"><h3>Team leadership</h3><p>Support engineers through code reviews, technical guidance, knowledge sharing and onboarding.</p></article>
+          <article class="card"><h3>Agile delivery</h3><p>Work with product owners and teams through backlog refinement, daily scrums, PI planning and sprint execution.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">06 / Education & Recognition</div><h2>Education and achievements</h2></div>
+        <div class="grid timeline">
+          <div class="card">
+            <div class="education-item"><strong>Master of Computer Applications (MCA)</strong><span>Anurag Engineering College · JNTU · 2008</span></div>
+            <div class="education-item" style="margin-top:22px;"><strong>B.Sc. – Computers</strong><span>S.V. College · Osmania University · 2004</span></div>
+          </div>
+          <div class="card">
+            <div class="education-item"><strong>Best Developer Award</strong><span>Recognized twice for development contributions.</span></div>
+            <div class="education-item" style="margin-top:22px;"><strong>Client Focus & Solution Delivery</strong><span>Received multiple appreciations.</span></div>
+            <div class="education-item" style="margin-top:22px;"><strong>MCA College First</strong><span>Secured college first for three consecutive years.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div><div class="eyebrow">07 / Contact</div><h2>Let's build something meaningful.</h2><p>Open to conversations about enterprise software, full-stack engineering and technical leadership opportunities.</p></div>
+          <div class="actions" style="margin:0;flex-shrink:0;"><a class="btn btn-primary" href="mailto:ckakkireni@gmail.com">Email me ↗</a></div>
+        </div>
+        <div class="muted-note" style="margin-top:18px;">Email: <a href="mailto:ckakkireni@gmail.com">ckakkireni@gmail.com</a> · Phone: <a href="tel:+919849328388">+91 98493 28388</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-row"><span>© <span id="year"></span> Chandrasekhar Kakkireni. All rights reserved.</span><span>Designed for a clear, professional portfolio experience.</span></div></footer>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
